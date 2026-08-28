@@ -65,10 +65,11 @@ re-derived by measurement in this codebase. Flagged rather than claimed.
 ## 3. Third-party source
 
 **None vendored in this tree.** No Fathom, no Syzygy probing code (there is no
-tablebase support), and no shared NNUE trainer. Every file in `src/` is the
-author's own work, from this project or from the NARC Engine codebase named
-above. The engine contains no Stockfish source code; the NNUE *architecture*
-debt is described in §2.
+tablebase support), and no shared NNUE trainer. Every file in `src/` originates
+with this project or with the NARC Engine codebase named above — none of it is
+copied from another engine. The engine contains no Stockfish source code; the
+NNUE *architecture* debt is described in §2. AI coding assistance was used
+during development; see §6.
 
 The only external code in a shipped binary is the statically linked C++
 runtime — see §5.
@@ -102,7 +103,35 @@ link:
 - **MinGW-w64 runtime and winpthreads** — permissive licences (public-domain and
   BSD-style terms); see the MinGW-w64 distribution for full text.
 
-## 6. Credit
+## 6. AI-assisted development — disclosed
+
+Parts of this project were written with the help of **OpenAI Codex, used inside
+Visual Studio Code**, to speed up development. This is disclosed here for the
+same reason the network provenance is (§4): anyone evaluating the engine should
+know how it was made.
+
+What that means in practice:
+
+- Codex was used as a coding assistant — drafting, refactoring, filling in
+  routine implementation and speeding up iteration — under the author's
+  direction. Architecture, design decisions and the choice of what to keep are
+  the author's.
+- It does not introduce third-party source into the tree. §3 still holds: no
+  code here is copied from another engine.
+- All generated code was reviewed by the author before it was committed, and
+  the engine's behaviour is validated the usual way — perft against published
+  references (README) and gauntlet testing at real time controls.
+- Correctness claims in this repository rest on that testing, not on the
+  authority of any tool that helped write the code.
+
+Assistance from a coding tool does not transfer authorship or licence
+obligations: the work remains the author's, under GPLv3.
+
+Documentation in this repository, including parts of `README.md` and this
+file, was likewise drafted with AI assistance. Commits carrying a
+`Co-Authored-By` trailer record where that applies.
+
+## 7. Credit
 
 CeylonDemon exists because the computer chess community publishes its work. The
 Stockfish project in particular, whose published NNUE architecture this

@@ -167,6 +167,12 @@ published by the Stockfish project. [NOTICE.md](NOTICE.md) sets out every one of
 those debts in full, along with the engine's lineage and the network's
 provenance.
 
+**On AI assistance.** Parts of this project were written with the help of
+OpenAI Codex inside VS Code, used to move faster. The design decisions are
+mine, everything committed was reviewed by me, and the strength and perft
+numbers come from actual testing rather than from trusting a tool's output.
+[NOTICE.md](NOTICE.md) spells out the details.
+
 CeylonDemon is free software under the **GNU General Public License v3 or
 later**. See [LICENSE](LICENSE).
 
