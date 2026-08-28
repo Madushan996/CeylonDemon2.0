@@ -1,0 +1,8 @@
+# Build output
+dist/
+build/
+*.o
+*.exe
+
+# Networks are NOT ignored: the .aa is linked into the executable at build
+# time, so losing it means the next build produces an engine with no network.
