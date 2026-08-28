@@ -58,11 +58,11 @@ between them:
 sigma = |AEGIS − LANCE|
 ```
 
-Sigma is how hard the two frames disagree. It spikes in exactly the positions
-where a single evaluation number is least trustworthy: sharp, double-edged
-spots where "I'm fine" and "they're getting mated" are both defensible readings.
-The search reads sigma directly and holds an extra ply of depth in that
-high-disagreement tail, where the extra look is worth the most.
+Sigma measures how far the two frames disagree. It is largest in exactly the
+positions where a single scalar evaluation is least trustworthy — sharp,
+double-edged positions where the defensive and offensive readings genuinely
+diverge. The search consumes sigma directly, holding an extra ply of depth in
+that high-disagreement tail.
 
 **Under the hood.** Each frame has 7,680 features (10 king buckets × 12 piece
 classes × 64 squares) and 320 accumulator lanes per perspective, with 8 output
@@ -70,12 +70,13 @@ buckets chosen by piece count. The forward pass is integer end to end — no
 floating point anywhere. The network was trained on 73.2 million positions the
 engine generated against itself.
 
-> **Where the network comes from — worth being straight about.** The weights
-> that ship today were warm-started from a Stockfish teacher. The engine's
-> *source code* contains no Stockfish code, but the *network* is not free of
-> Stockfish ancestry, and I'm not going to pretend otherwise. A
-> clean-provenance replacement, trained without any Stockfish-derived teacher,
-> is in the works. Full detail in [NOTICE.md](NOTICE.md).
+> **Network provenance.** The weights embedded in the current release were
+> warm-started from a Stockfish teacher network. The engine source contains no
+> Stockfish code, but the network carries Stockfish ancestry and is not
+> presented as independently derived. A clean-provenance network, trained
+> without a Stockfish-derived teacher, is under development; until it ships this
+> applies to every released binary, since the network is linked into the
+> executable. See [NOTICE.md](NOTICE.md) §4.
 
 ## Board and search
 
@@ -128,9 +129,9 @@ refresh so you can see the two agree.
 **2719.5 ± 32.8** — a locally transferred CCI-STC estimate under 10+0.1
 conditions.
 
-I want to be careful about what that number is and isn't. It is **not** an
-official CCI rating and it is **not** universal Elo. It's an interpolation
-against a fixed set of anchor engines, and I'm reporting it with its warts on.
+This is **not** an official CCI rating and **not** universal Elo. It is an
+interpolation against a fixed set of anchor engines, reported below with its
+limitations.
 
 | | |
 |---|---|
@@ -148,13 +149,12 @@ per-opponent residuals sit between −0.6 and +3.5 points, which is a tight fit.
 The odd one out is **Rose 1.0.0**: 0.5/40 where the rating predicts about 4.0/40.
 That's a real outlier, outside sampling noise, and I don't yet know why.
 
-**The honest caveats.** The ±32.8 is statistical error only — the error from
-transferring against these particular anchors is systematic and I haven't
-quantified it. The run says nothing about other time controls, thread counts, or
-hash sizes, and gaps under roughly 65 Elo aren't resolvable at this precision.
-CeylonDemon has never played a game under CCRL conditions and isn't on any
-public rating list. If you want to test it independently, please do — I'd
-genuinely like to see the numbers.
+**Caveats.** The ±32.8 is statistical error only; the error introduced by
+transferring against these particular anchors is systematic and unquantified.
+The run says nothing about other time controls, thread counts, or hash sizes,
+and version gaps under roughly 65 Elo are unresolvable at this precision.
+CeylonDemon has never played a game under CCRL conditions and does not appear on
+any public rating list. Independent testing is welcome.
 
 ## Credits and licence
 
@@ -167,11 +167,10 @@ published by the Stockfish project. [NOTICE.md](NOTICE.md) sets out every one of
 those debts in full, along with the engine's lineage and the network's
 provenance.
 
-**On AI assistance.** Parts of this project were written with the help of
-OpenAI Codex inside VS Code, used to move faster. The design decisions are
-mine, everything committed was reviewed by me, and the strength and perft
-numbers come from actual testing rather than from trusting a tool's output.
-[NOTICE.md](NOTICE.md) spells out the details.
+**AI assistance.** Parts of this project were developed with OpenAI Codex in
+Visual Studio Code. Design decisions and review are the author's, and the perft
+and strength figures above come from measurement rather than from a tool's
+output. See [NOTICE.md](NOTICE.md) §6.
 
 CeylonDemon is free software under the **GNU General Public License v3 or
 later**. See [LICENSE](LICENSE).
