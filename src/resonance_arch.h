@@ -32,8 +32,8 @@
 // Sigma measures how much the two frames disagree. It is large exactly where
 // evaluation is least trustworthy: sharp positions where a defensive reading
 // and an offensive reading diverge. The search consumes sigma directly to
-// widen aspiration windows, soften late-move reductions and inflate futility
-// margins in precisely the positions where a single scalar eval is unreliable.
+// soften late move reductions in that high-disagreement tail, preserving a ply
+// where a single scalar eval is least reliable.
 //
 // ---------------------------------------------------------------------------
 // This header targets Resonance v10 only — the shipped champion. Earlier
