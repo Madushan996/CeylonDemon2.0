@@ -11,6 +11,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 ![C++20](https://img.shields.io/badge/C%2B%2B-20-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-x86--64-lightgrey.svg)
+[![Downloads](https://img.shields.io/github/downloads/Madushan996/CeylonDemon2.0/total)](https://github.com/Madushan996/CeylonDemon2.0/releases)
 
 </div>
 
