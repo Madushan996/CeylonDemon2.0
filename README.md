@@ -157,8 +157,19 @@ refresh so you can see the two agree.
 
 ## How strong is it?
 
+**Roughly 3210–3350 on the CCRL Blitz scale**, centred near 3280.
+
+That is a cross-list approximation, not a measurement — CeylonDemon has never
+played a CCRL-conditions game and appears on no CCRL list. It is derived from
+the measured result below, so the measurement, not the estimate, is the real
+claim. How it is derived, and why it refers to the Blitz list specifically, is
+set out at the end of this section.
+
+### The measured result
+
 **2719.5 ± 32.8** — a locally transferred CCI-STC estimate under 10+0.1
-conditions.
+conditions. Note the scale: this is the **CCI STC** list, not CCRL, and the two
+are not interchangeable.
 
 This is **not** an official CCI rating and **not** universal Elo. It is an
 interpolation against a fixed set of anchor engines, reported below with its
@@ -187,18 +198,23 @@ and version gaps under roughly 65 Elo are unresolvable at this precision.
 CeylonDemon has never played a game under CCRL conditions and does not appear on
 any public rating list. Independent testing is welcome.
 
-**Approximate CCRL Blitz equivalent.** The figure above is on the CCI STC
-scale, which is easily mistaken for a CCRL rating — the two are not
-interchangeable. For cross-reference only: a linear fit over ten engines
-appearing on both lists, using 1-CPU CCRL Blitz figures, places CeylonDemon 2.0
-near **3280 CCRL Blitz, with a realistic range of 3210–3350**.
+### How the CCRL figure is derived
 
-That is an approximation from a cross-list regression, not a measurement.
-CeylonDemon has never played a CCRL-conditions game and does not appear on any
-CCRL list. The fit carries ±33 RMS residual scatter, rests on one weak
-calibration point, and is applied 42 points below the range it was calibrated
-over. It refers to the **Blitz** list specifically; no equivalent is offered for
-CCRL 40/15, for which no calibration was done.
+A linear fit over ten engines appearing on both lists, using 1-CPU CCRL Blitz
+figures to match the single-threaded conditions above:
+
+```
+CCRL_Blitz  ≈  0.765 × CCI_STC  +  1199        (RMS residual ± 33)
+```
+
+Applied to 2719.5, that gives 3280, and widening for unquantified systematics
+gives the 3210–3350 range.
+
+Treat it as a rough cross-reference only. The fit carries ±33 RMS residual
+scatter, rests on one weak calibration point (Tunguska 2.1, 224 CCRL games), and
+is applied 42 points below the range it was calibrated over. It refers to the
+**Blitz** list specifically; no equivalent is offered for CCRL 40/15, for which
+no calibration was done.
 
 ## Credits and licence
 
