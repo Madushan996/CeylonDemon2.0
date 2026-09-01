@@ -187,6 +187,19 @@ and version gaps under roughly 65 Elo are unresolvable at this precision.
 CeylonDemon has never played a game under CCRL conditions and does not appear on
 any public rating list. Independent testing is welcome.
 
+**Approximate CCRL Blitz equivalent.** The figure above is on the CCI STC
+scale, which is easily mistaken for a CCRL rating — the two are not
+interchangeable. For cross-reference only: a linear fit over ten engines
+appearing on both lists, using 1-CPU CCRL Blitz figures, places CeylonDemon 2.0
+near **3280 CCRL Blitz, with a realistic range of 3210–3350**.
+
+That is an approximation from a cross-list regression, not a measurement.
+CeylonDemon has never played a CCRL-conditions game and does not appear on any
+CCRL list. The fit carries ±33 RMS residual scatter, rests on one weak
+calibration point, and is applied 42 points below the range it was calibrated
+over. It refers to the **Blitz** list specifically; no equivalent is offered for
+CCRL 40/15, for which no calibration was done.
+
 ## Credits and licence
 
 CeylonDemon is built on the **NARC Engine**, my own codebase, used under GPLv3.
