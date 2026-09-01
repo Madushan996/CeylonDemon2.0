@@ -160,7 +160,7 @@ refresh so you can see the two agree.
 **Roughly 3210–3350 on the CCRL Blitz scale**, centred near 3280.
 
 That is a cross-list approximation, not a measurement — CeylonDemon has never
-played a CCRL-conditions game and appears on no CCRL list. It is derived from
+played a CCRL-conditions games. It is derived from
 the measured result below, so the measurement, not the estimate, is the real
 claim. How it is derived, and why it refers to the Blitz list specifically, is
 set out at the end of this section.
